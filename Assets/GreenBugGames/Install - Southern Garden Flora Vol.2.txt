@@ -1,0 +1,25 @@
+Southern Garden Flora Vol.2 
+------------------------------------------------------------------------------------------------------
+
+Support: 
+- Built_in: from 2021.2 to newer
+- HDRP and URP: from 2020.2 to newer
+------------------------------------------------------------------------------------------------------
+Installation:
+==If you use HDRP overwrite with "SFG_Vol.2_HDRP". If trees diffusion can't wrong, open any leaf material and click FIX on "GreenBugDiffProf". 
+
+==If you use URP overwrite with "SFG_Vol.2_URP".
+
+==If you use Build_in overwrite with "SFG_Vol.2_in".
+
+!!!ATTENTION!!!: You must have Shader Graph installed. (Preferably Build_In)
+How to do it? Click "Window-Package Manager-Packages:In Unity Registry". Find Shader Graph, and install this.
+
+Scenes are located in folders appropriate to the render type.
+ 
+--------------------------------------------------------------------------
+
+
+Use reflection probes for best results with shine-smooth.
+
+Questions to: greenbuggames@gmail.com or Discord: grow_to_light
