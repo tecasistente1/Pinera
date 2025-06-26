@@ -41,22 +41,48 @@ public class PlantingPineappleGrid : MonoBehaviour
                 Vector3 posicion = new Vector3(ileraX + 0.3f, y + 0.05f, ileraZ + 0.1f);
                 Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
 
-                // Solo en este rango se agregan los snaps
-                if (ileraX >= 38.1f && ileraX <= 61.2f && ileraZ >= 43f && ileraZ <= 47f)
-                {
-                    // --------- Piña grabable CON snap ---------
-                    GameObject superContenedor = new GameObject("SuperContenedorSnap_" + contador);
-                    superContenedor.transform.position = posicion;
+                //// Solo en este rango se agregan los snaps
+                //if (ileraX >= 38.1f && ileraX <= 61.2f && ileraZ >= 43f && ileraZ <= 47f)
+                //{
+                //    // --------- Piña grabable CON snap ---------
+                //    GameObject superContenedor = new GameObject("SuperContenedorSnap_" + contador);
+                //    superContenedor.transform.position = posicion;
 
-                    BoxCollider box = superContenedor.AddComponent<BoxCollider>();
-                    box.isTrigger = true;
-                    box.size = new Vector3(0.5f, 0.5f, 0.5f);
-                    box.center = Vector3.zero;
-                    superContenedor.AddComponent<SuperSnapZone>();
+                //    BoxCollider box = superContenedor.AddComponent<BoxCollider>();
+                //    box.isTrigger = true;
+                //    box.size = new Vector3(0.5f, 0.5f, 0.5f);
+                //    box.center = Vector3.zero;
 
+                //    GameObject contenedor = new GameObject("Contenedor_Piña");
+                //    contenedor.transform.position = posicion;
+                //    contenedor.transform.SetParent(superContenedor.transform);
+
+                //    GameObject visual = Instantiate(pineapple, posicion, rotacion);
+                //    float randonomScale = Random.Range(0.18f, 0.115f);
+                //    visual.transform.localScale = Vector3.one * randonomScale;
+                //    visual.transform.SetParent(contenedor.transform);
+
+                //    contenedor.AddComponent<PiñasMakeChildrenGrabbable>();
+
+                //    var snap = contenedor.AddComponent<SnapPiñas>();
+                //    snap.objetoVisual = visual;
+                //    snap.posicionOrigen = posicion;
+                //    snap.rotacionOrigen = rotacion;
+
+                //    var script = contenedor.AddComponent<ActivadorPorProximidad2>();
+                //    script.referencia = jugadorOCamara;
+                //    script.camaraJugador = mainCamera;
+                //    script.distanciaActivacion = distanciaActivacionC;
+                //    script.chequearCadaFrame = true;
+                //    script.objetoVisual = visual;
+
+                //    Debug.Log("Piña con snap creada en: " + posicion + " | Contador: " + contador);
+                //}
+                //else
+                //{
+                    // --------- Piña grabable SIN snap ---------
                     GameObject contenedor = new GameObject("Contenedor_Piña");
                     contenedor.transform.position = posicion;
-                    contenedor.transform.SetParent(superContenedor.transform);
 
                     GameObject visual = Instantiate(pineapple, posicion, rotacion);
                     float randonomScale = Random.Range(0.18f, 0.115f);
@@ -76,29 +102,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                     script.distanciaActivacion = distanciaActivacionC;
                     script.chequearCadaFrame = true;
                     script.objetoVisual = visual;
-
-                    Debug.Log("Piña con snap creada en: " + posicion + " | Contador: " + contador);
-                }
-                else
-                {
-                    // --------- Piña grabable SIN snap ---------
-                    GameObject contenedor = new GameObject("Contenedor_Piña");
-                    contenedor.transform.position = posicion;
-
-                    GameObject visual = Instantiate(pineapple, posicion, rotacion);
-                    float randonomScale = Random.Range(0.18f, 0.115f);
-                    visual.transform.localScale = Vector3.one * randonomScale;
-                    visual.transform.SetParent(contenedor.transform);
-
-                    contenedor.AddComponent<PiñasMakeChildrenGrabbable>();
-
-                    var script = contenedor.AddComponent<ActivadorPorProximidad2>();
-                    script.referencia = jugadorOCamara;
-                    script.camaraJugador = mainCamera;
-                    script.distanciaActivacion = distanciaActivacionC;
-                    script.chequearCadaFrame = true;
-                    script.objetoVisual = visual;
-                }
+                //}
 
                 contador++;
             }
