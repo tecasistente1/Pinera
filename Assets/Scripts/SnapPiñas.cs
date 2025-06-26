@@ -4,17 +4,15 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class SnapPiñas : MonoBehaviour
 {
-    public GameObject objetoVisual;
-    public Vector3 posicionOrigen;
-    public Quaternion rotacionOrigen;
+    public GameObject objetoVisual; // El hijo visual (piña)
+    public Vector3 posicionOrigen;  // Posición exacta de inserción
+    public Quaternion rotacionOrigen; // Rotación exacta de inserción
     private float tiempoUltimaManipulacion;
     public float tiempoRegreso = 15f;
 
     private XRGrabInteractable grabInteractable;
     private Rigidbody rb;
-
-    private bool enSnapCamion = false;
-    private Rigidbody lastRigidBody;
+    private bool enZonaSnap = false; // <--- NUEVO
 
     void Start()
     {
@@ -36,57 +34,110 @@ public class SnapPiñas : MonoBehaviour
         {
             grabInteractable.selectEntered.AddListener(OnGrabbed);
             grabInteractable.selectExited.AddListener(OnReleased);
+            Debug.Log("SnapPiñas: Listener agregado a " + objetoVisual.name);
         }
-        tiempoUltimaManipulacion = Time.time;
-    }
-
-    public void EntrarZonaSnapCamion(Transform puntoSnap)
-    {
-        if (objetoVisual != null)
+        else
         {
-            // Quita selección si alguien la estaba agarrando
-            if (grabInteractable != null && grabInteractable.isSelected)
-                grabInteractable.interactionManager.SelectExit(grabInteractable.firstInteractorSelecting, grabInteractable);
-
-            Rigidbody rbActual = objetoVisual.GetComponent<Rigidbody>();
-            if (rbActual != null)
-            {
-                rbActual.isKinematic = true;
-                rbActual.velocity = Vector3.zero;
-                rbActual.angularVelocity = Vector3.zero;
-                lastRigidBody = rbActual;
-            }
-
-            // Coloca la piña exactamente en el snap y con la rotación del attachPoint
-            objetoVisual.transform.position = puntoSnap.position;
-            objetoVisual.transform.rotation = puntoSnap.rotation;
-
-            enSnapCamion = true;
+            Debug.LogWarning("SnapPiñas: No se encontró XRGrabInteractable en " + (objetoVisual != null ? objetoVisual.name : "N/A"));
         }
-    }
 
-    public void SalirZonaSnapCamion()
-    {
-        enSnapCamion = false;
-        if (lastRigidBody != null)
-            lastRigidBody.isKinematic = false;
+        tiempoUltimaManipulacion = Time.time;
+        Debug.Log("SnapPiñas: Inicio completado para " + objetoVisual?.name);
     }
 
     void Update()
     {
-        // Si está en el snap del camión, no hacer nada
-        if (enSnapCamion) return;
-        // Aquí puedes poner la lógica de regreso o lo que quieras para fuera del camión
+        // Si está dentro del área snap, nada de esto se ejecuta
+        if (enZonaSnap)
+            return;
+
+        if (objetoVisual != null && objetoVisual.transform.position.y < 0)
+        {
+            Debug.Log("SnapPiñas: Snap por caída fuera del rango [" + objetoVisual.name + "]");
+            Regresar();
+            return;
+        }
+
+        if (!EstaSiendoManipulada() && (Time.time - tiempoUltimaManipulacion > tiempoRegreso))
+        {
+            Debug.Log("SnapPiñas: Snap por tiempo sin manipulación [" + objetoVisual.name + "]");
+            Regresar();
+        }
     }
 
     private void OnGrabbed(SelectEnterEventArgs args)
     {
+        Debug.Log("SnapPiñas: ¡Piña agarrada! [" + objetoVisual.name + "]");
         tiempoUltimaManipulacion = Time.time;
     }
 
     private void OnReleased(SelectExitEventArgs args)
     {
+        Debug.Log("SnapPiñas: ¡Piña soltada! [" + objetoVisual.name + "]");
         tiempoUltimaManipulacion = Time.time;
-        if (rb != null) rb.isKinematic = false; // Por si sale del snap agarrada
+    }
+
+    private bool EstaSiendoManipulada()
+    {
+        if (grabInteractable == null)
+        {
+            Debug.LogWarning("SnapPiñas: No hay XRGrabInteractable asignado para [" + objetoVisual?.name + "]");
+            return false;
+        }
+        return grabInteractable.isSelected;
+    }
+
+    private void Regresar()
+    {
+        if (objetoVisual != null)
+        {
+            Debug.Log("SnapPiñas: Regresando piña a posición original [" + objetoVisual.name + "] Pos: " + posicionOrigen);
+
+            if (rb != null)
+            {
+                rb.isKinematic = true;
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                Debug.Log("SnapPiñas: Rigidbody reseteado para [" + objetoVisual.name + "]");
+            }
+
+            objetoVisual.transform.position = posicionOrigen;
+            objetoVisual.transform.rotation = rotacionOrigen;
+
+            if (rb != null)
+                StartCoroutine(ReactivarFisica(rb));
+        }
+        tiempoUltimaManipulacion = Time.time;
+    }
+
+    // Corrutina para reactivar física tras mover
+    private System.Collections.IEnumerator ReactivarFisica(Rigidbody rb)
+    {
+        yield return null;
+        if (!enZonaSnap) // Solo reactivar física si está fuera de la zona snap
+            rb.isKinematic = false;
+    }
+
+    // ----------- NUEVO: métodos para usar desde el SuperContenedor -----------
+    public void EntrarZonaSnap()
+    {
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+        objetoVisual.transform.position = posicionOrigen;
+        objetoVisual.transform.rotation = rotacionOrigen;
+        enZonaSnap = true;
+        Debug.Log("SnapPiñas: Entró a la zona snap [" + objetoVisual.name + "]");
+    }
+
+    public void SalirZonaSnap()
+    {
+        enZonaSnap = false;
+        if (rb != null)
+            rb.isKinematic = false;
+        Debug.Log("SnapPiñas: Salió de la zona snap [" + objetoVisual.name + "]");
     }
 }
