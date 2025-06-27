@@ -9,7 +9,7 @@ public class PlantingPineappleGrid : MonoBehaviour
     public Transform jugadorOCamara;
     public Camera mainCamera;
     public float distanciaActivacionC = 20f;
-    public int opcionPiñas = 1; // 1 para plantar normal, 2 para plantar con más densidad
+    public int opcionSiembra = 1; // 1 para plantar normal, 2 para plantar con más densidad
     public bool usarBajaResolucion = false;
 
 
@@ -77,7 +77,7 @@ public class PlantingPineappleGrid : MonoBehaviour
         //}
         for (float ileraZ = startZ; ileraZ < endZ; ileraZ += 3.7f)
         {
-            if (opcionPiñas == 1)
+            if (opcionSiembra == 1)
             {
                 for (float ileraX = startX; ileraX < endX; ileraX++)
                 {
@@ -127,7 +127,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                     contador++;
                 }
             }
-            else if (opcionPiñas == 2)
+            else if (opcionSiembra == 2)
             {
                 for (float ileraX = startX; ileraX < endX; ileraX += 0.5f)
                 {
