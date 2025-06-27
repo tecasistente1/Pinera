@@ -16,6 +16,13 @@ public class ActivadorPorProximidad2 : MonoBehaviour
         {
             EvaluarProximidadYVision();
         }
+
+        if (objetoVisual == null)
+        {
+            Debug.LogError("El objeto visual no está asignado en el Inspector.");
+            // Asignar el objeto hijo como objetoVisual si no está asignado
+            objetoVisual = transform.GetChild(0).gameObject; // Asume que el primer hijo es el visual
+        }
     }
 
     void Update()

@@ -10,6 +10,7 @@ public class PlantingGrassGrid: MonoBehaviour
     public Camera mainCamera;
     public float distanciaActivacionC = 20f; // Distancia a la que se activa el objeto
     private int contPlants = 0; // Contador de plantas para verificar el total plantado
+    public bool altaDensidad = false; // Si se quiere plantar con más densidad
 
 
     private void InstanciarPlantaConContenedor(Vector3 position, GameObject prefab)
@@ -18,28 +19,19 @@ public class PlantingGrassGrid: MonoBehaviour
         GameObject contenedor = new GameObject("Contenedor_" + prefab.name);
         contenedor.transform.position = position;
 
-        // Instanciar la planta como hijo directo del contenedor y en su posición final
         GameObject visual = Instantiate(prefab, position, Quaternion.identity, contenedor.transform);
 
-        // Eliminar físicas si las tuviera
         DestroyImmediate(visual.GetComponent<Rigidbody>());
         DestroyImmediate(visual.GetComponent<Collider>());
 
-        //// Añadir script al contenedor (no al visual)
-        //var activador = contenedor.AddComponent<ActivadorPorProximidad>();
-        //activador.referencia = jugadorOCamara;
-        //activador.objetoVisual = visual;
-        //activador.distanciaActivacion = distanciaActivacionC;
-        //activador.chequearCadaFrame = true;
-
         var script = contenedor.AddComponent<ActivadorPorProximidad2>();
-        script.referencia = jugadorOCamara;           // (Por si usas la posición para distancia)
-        script.camaraJugador = mainCamera; // <-- AQUÍ debes pasar la Main Camera
+        script.referencia = jugadorOCamara;       
+        script.camaraJugador = mainCamera; 
         script.distanciaActivacion = distanciaActivacionC;
         script.chequearCadaFrame = true;
         script.objetoVisual = visual;
 
-        contPlants++; // Contador global
+        contPlants++; 
     }
 
 
@@ -79,14 +71,28 @@ public class PlantingGrassGrid: MonoBehaviour
 
     void Start()
     {
-        GenerarPlantasZona(0f, 100f, 1f, 0f, 3f, 1f);
-        GenerarPlantasZona(0f, 100f, 1f, 30.5f, 36f, 1f);
-        GenerarPlantasZona(0f, 100f, 1f, 63.5f, 69.2f, 1f);
-        GenerarPlantasZona(0f, 100f, 1f, 96.5f, 100f, 1f);
+        if (altaDensidad)
+        {
+            GenerarPlantasZona(0f, 100f, 0.7f, 0f, 3f, 0.7f);
+            GenerarPlantasZona(0f, 100f, 0.7f, 30.5f, 36f, 0.7f);
+            GenerarPlantasZona(0f, 100f, 0.7f, 63.5f, 69.2f, 0.7f);
+            GenerarPlantasZona(0f, 100f, 0.7f, 96.5f, 100f, 0.7f);
 
-        GenerarPlantasZona(1f, 4f, 1f, 0f, 100f, 1f);        //(float inicioZ, float finZ, float pasoZ, float inicioX, float finX, float pasoX)
-        GenerarPlantasZona(47.3f, 53f, 1f, 0f, 100f, 1f);
-        GenerarPlantasZona(97f, 100f, 1f, 0f, 100f, 1f);
+            GenerarPlantasZona(1f, 4f, 0.7f, 0f, 100f, 0.7f);        //(float inicioZ, float finZ, float pasoZ, float inicioX, float finX, float pasoX)
+            GenerarPlantasZona(47.3f, 53f, 0.7f, 0f, 100f, 0.7f);
+            GenerarPlantasZona(97f, 100f, 0.7f, 0f, 100f, 0.7f);
+        }
+        else
+        {
+            GenerarPlantasZona(0f, 100f, 1f, 0f, 3f, 1f);
+            GenerarPlantasZona(0f, 100f, 1f, 30.5f, 36f, 1f);
+            GenerarPlantasZona(0f, 100f, 1f, 63.5f, 69.2f, 1f);
+            GenerarPlantasZona(0f, 100f, 1f, 96.5f, 100f, 1f);
+
+            GenerarPlantasZona(1f, 4f, 1f, 0f, 100f, 1f);        //(float inicioZ, float finZ, float pasoZ, float inicioX, float finX, float pasoX)
+            GenerarPlantasZona(47.3f, 53f, 1f, 0f, 100f, 1f);
+            GenerarPlantasZona(97f, 100f, 1f, 0f, 100f, 1f);
+        }
 
         Debug.Log("Total de plantas de hierba colocadas: " + contPlants);
     }
