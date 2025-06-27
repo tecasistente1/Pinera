@@ -8,16 +8,16 @@ public class PlantingPineapplePlantGrid : MonoBehaviour
     public GameObject plantPrefab2;
     public Terrain terrain;
     public Transform jugadorOCamara;
-    public Camera mainCamera; 
+    public Camera mainCamera;
     public float distanciaActivacionC = 3000f;
 
     private int contPlants = 0;
 
     void Start()
     {
-        float[] zonasX = { 5.5f, 38.2f, 71.1f};
+        float[] zonasX = { 5.5f, 38.2f, 71.1f };
         float zMin1 = 4.7f, zMax1 = 46.9f;
-        float zMin2 = 54f, zMax2 = 94.7f; 
+        float zMin2 = 54f, zMax2 = 94.7f;
 
         foreach (float startX in zonasX)
         {
@@ -35,8 +35,8 @@ public class PlantingPineapplePlantGrid : MonoBehaviour
         {
             for (float ileraZ = startZ; ileraZ < endZ; ileraZ += 3.7f)
             {
-             PlantarUnaPlanta(ileraX, ileraZ);
-              
+                PlantarUnaPlanta(ileraX, ileraZ);
+
             }
         }
     }
