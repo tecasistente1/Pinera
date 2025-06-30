@@ -9,7 +9,7 @@ public class PlantingPineappleGrid : MonoBehaviour
     public Transform jugadorOCamara;
     public Camera mainCamera;
     public float distanciaActivacionC = 20f;
-    public int opcionSiembra = 1; // 1 para plantar normal, 2 para plantar con más densidad
+    public int opcionSiembra = 1;
     public bool usarBajaResolucion = false;
 
 
@@ -33,56 +33,14 @@ public class PlantingPineappleGrid : MonoBehaviour
 
     void colocarPiñas(float startX, float endX, float startZ, float endZ, ref int contador)
     {
-        //for (float ileraX = startX; ileraX < endX; ileraX++)
-        //{
-        //    for (float ileraZ = startZ; ileraZ < endZ; ileraZ += 3.7f)
-        //    {
-        //        // Zona central ignorada totalmente
-        //        if (ileraX >= 38.1f && ileraX <= 61.2f && ileraZ >= 54f && ileraZ <= 71.1f)
-        //            continue;
-
-        //        float y = terrain.SampleHeight(new Vector3(ileraX, 0, ileraZ));
-        //        Vector3 posicion = new Vector3(ileraX + 0.3f, y + 0.05f, ileraZ + 0.1f);
-        //        Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
-
-
-        //        GameObject contenedor = new GameObject("Contenedor_Piña");
-        //        contenedor.transform.position = posicion;
-
-        //        GameObject visual = Instantiate(pineapple, posicion, rotacion);
-        //        float randonomScale = Random.Range(0.13f, 0.09f);
-        //        visual.transform.localScale = Vector3.one * randonomScale;
-        //        visual.transform.SetParent(contenedor.transform);
-
-        //        contenedor.AddComponent<PiñasMakeChildrenGrabbable>();
-        //        contenedor.AddComponent<SnapInteractor>();
-
-        //        var snap = contenedor.AddComponent<SnapPiñas>();
-        //        snap.objetoVisual = visual;
-        //        snap.posicionOrigen = posicion;
-        //        snap.rotacionOrigen = rotacion;
-
-
-
-        //        var script = contenedor.AddComponent<ActivadorPorProximidad2>();
-        //        script.referencia = jugadorOCamara;
-        //        script.camaraJugador = mainCamera;
-        //        script.distanciaActivacion = distanciaActivacionC;
-        //        script.chequearCadaFrame = true;
-        //        script.objetoVisual = visual;
-
-
-        //        contador++;
-        //    }
-        //}
         for (float ileraZ = startZ; ileraZ < endZ; ileraZ += 3.7f)
         {
             if (opcionSiembra == 1)
             {
                 for (float ileraX = startX; ileraX < endX; ileraX++)
                 {
-                    // Zona central ignorada totalmente
-                    if (ileraX >= 38.1f && ileraX <= 61.2f && ileraZ >= 54f && ileraZ <= 71.1f)
+                   
+                    if (ileraX >= 35f && ileraX <= 64f && ileraZ >= 54f && ileraZ <= 71.1f)
                         continue;
 
                     float y = terrain.SampleHeight(new Vector3(ileraX, 0, ileraZ));
@@ -90,7 +48,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                     Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
 
 
-                    GameObject contenedor = new GameObject("Contenedor_Piña");
+                    GameObject contenedor = new GameObject("Contenedor_Arbol");
                     contenedor.transform.position = posicion;
 
                     GameObject visual;
@@ -131,7 +89,7 @@ public class PlantingPineappleGrid : MonoBehaviour
             {
                 for (float ileraX = startX; ileraX < endX; ileraX += 0.5f)
                 {
-                    // Zona central ignorada totalmente
+                
                     if (ileraX >= 38.1f && ileraX <= 61.2f && ileraZ >= 54f && ileraZ <= 71.1f)
                         continue;
 

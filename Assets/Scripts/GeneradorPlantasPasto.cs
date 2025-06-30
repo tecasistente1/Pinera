@@ -3,19 +3,19 @@ using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class PlantingGrassGrid: MonoBehaviour
 {
-    public GameObject GrassObjectPrefab1; // Cubo o lo que uses para visualizar
+    public GameObject GrassObjectPrefab1; 
     public GameObject GrassObjectPrefab2;
-    public Terrain terrain;             // El terreno sobre el cual se va a plantar
+    public Terrain terrain;         
     public Transform jugadorOCamara;
     public Camera mainCamera;
-    public float distanciaActivacionC = 20f; // Distancia a la que se activa el objeto
-    private int contPlants = 0; // Contador de plantas para verificar el total plantado
-    public bool altaDensidad = false; // Si se quiere plantar con más densidad
+    public float distanciaActivacionC = 20f;
+    private int contPlants = 0; 
+    public bool altaDensidad = false; 
 
 
     private void InstanciarPlantaConContenedor(Vector3 position, GameObject prefab)
     {
-        // Crear el contenedor vacío
+  
         GameObject contenedor = new GameObject("Contenedor_" + prefab.name);
         contenedor.transform.position = position;
 
@@ -52,7 +52,6 @@ public class PlantingGrassGrid: MonoBehaviour
                 Vector3 basePosition = new Vector3(worldX, worldY + 0.1234f, worldZ);
                 InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab1);
 
-                // Plantas adicionales
                 int cantidadExtras = (randomValue < 1f) ? 1 :
                                      (randomValue < 2f) ? 2 :
                                      (randomValue < 3f) ? 3 : 0;
@@ -60,7 +59,7 @@ public class PlantingGrassGrid: MonoBehaviour
                 for (int i = 0; i < cantidadExtras; i++)
                 {
                     float extraX = Random.Range(inicioX, finX);
-                    worldY = terrain.SampleHeight(new Vector3(extraX, 0, worldZ)); // Recalcular Y para la nueva posición
+                    worldY = terrain.SampleHeight(new Vector3(extraX, 0, worldZ)); 
                     Vector3 extraPos = new Vector3(extraX, worldY + 0.1234f, worldZ);
                     InstanciarPlantaConContenedor(extraPos, GrassObjectPrefab2);
                 }
@@ -72,26 +71,40 @@ public class PlantingGrassGrid: MonoBehaviour
     void Start()
     {
         if (altaDensidad)
-        {
-            GenerarPlantasZona(0f, 100f, 0.7f, 0f, 3f, 0.7f);
-            GenerarPlantasZona(0f, 100f, 0.7f, 30.5f, 36f, 0.7f);
-            GenerarPlantasZona(0f, 100f, 0.7f, 63.5f, 69.2f, 0.7f);
-            GenerarPlantasZona(0f, 100f, 0.7f, 96.5f, 100f, 0.7f);
+        {   //z
+            GenerarPlantasZona(3.5f, 96.5f, 0.8f, 0f, 3f, 0.8f);
+            GenerarPlantasZona(3.5f, 96.5f, 0.8f, 30.5f, 36f, 0.8f);
+            GenerarPlantasZona(3.5f, 96.5f, 0.8f, 63.5f, 69.2f, 0.8f);
+            GenerarPlantasZona(3.5f, 96.5f, 0.8f, 96.5f, 100f, 0.8f);
 
-            GenerarPlantasZona(1f, 4f, 0.7f, 0f, 100f, 0.7f);        //(float inicioZ, float finZ, float pasoZ, float inicioX, float finX, float pasoX)
-            GenerarPlantasZona(47.3f, 53f, 0.7f, 0f, 100f, 0.7f);
-            GenerarPlantasZona(97f, 100f, 0.7f, 0f, 100f, 0.7f);
+            //x
+            GenerarPlantasZona(1f, 4f, 0.8f, 0f, 100f, 0.8f); 
+            GenerarPlantasZona(47.3f, 53f, 0.8f, 3f, 30f, 0.8f);
+            GenerarPlantasZona(47.3f, 53f, 0.8f, 36f, 63.5f, 0.8f);
+            GenerarPlantasZona(47.3f, 53f, 0.8f, 69.3f, 97f, 0.8f);
+            GenerarPlantasZona(97f, 100f, 0.8f, 0f, 100f, 0.8f);
+
+
+            //espacio vacío 
+            GenerarPlantasZona(53f, 69f, 0.8f, 36f, 63.5f, 0.8f);
+
         }
         else
-        {
-            GenerarPlantasZona(0f, 100f, 1f, 0f, 3f, 1f);
-            GenerarPlantasZona(0f, 100f, 1f, 30.5f, 36f, 1f);
-            GenerarPlantasZona(0f, 100f, 1f, 63.5f, 69.2f, 1f);
-            GenerarPlantasZona(0f, 100f, 1f, 96.5f, 100f, 1f);
+        {   //z
+            GenerarPlantasZona(3.5f, 96.5f, 1f, 0f, 3f, 1f);
+            GenerarPlantasZona(3.5f, 96.5f, 1f, 30.5f, 36f, 1f);
+            GenerarPlantasZona(3.5f, 96.5f, 1f, 63.5f, 69.2f, 1f);
+            GenerarPlantasZona(3.5f, 96.5f, 1f, 96.5f, 100f, 1f);
 
-            GenerarPlantasZona(1f, 4f, 1f, 0f, 100f, 1f);        //(float inicioZ, float finZ, float pasoZ, float inicioX, float finX, float pasoX)
-            GenerarPlantasZona(47.3f, 53f, 1f, 0f, 100f, 1f);
-            GenerarPlantasZona(97f, 100f, 1f, 0f, 100f, 1f);
+            //x
+            GenerarPlantasZona(1f, 4f, 1f, 3f, 100f, 1f);   
+            GenerarPlantasZona(47.3f, 53f, 1f, 3f, 30f, 1f);
+            GenerarPlantasZona(47.3f, 53f, 1f, 36f, 36f, 1f);
+            GenerarPlantasZona(47.3f, 53f, 1f, 69.3f, 97f, 1f);
+            GenerarPlantasZona(97f, 100f, 1f, 3f, 100f, 1f);
+
+            //espacio vacío 
+            GenerarPlantasZona(53f, 69f, 1f, 36f, 63.5f, 1f);
         }
 
         Debug.Log("Total de plantas de hierba colocadas: " + contPlants);

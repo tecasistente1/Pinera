@@ -9,10 +9,10 @@ public class PlantingPineapplePlantGrid : MonoBehaviour
     public Terrain terrain;
     public Transform jugadorOCamara;
     public Camera mainCamera;
-    public float distanciaActivacionC = 3000f;
+    public float distanciaActivacionC = 30f;
 
     private int contPlants = 0;
-    public int OpcionPlantacion = 1; // 1 para plantar normal, 2 para plantar con mas densidad
+    public int OpcionPlantacion = 1; 
 
     void Start()
     {
@@ -32,14 +32,6 @@ public class PlantingPineapplePlantGrid : MonoBehaviour
 
     void PlantarBloques(float startX, float endX, float startZ, float endZ)
     {
-        //for (float ileraX = startX; ileraX < endX; ileraX++)
-        //{
-        //    for (float ileraZ = startZ; ileraZ < endZ; ileraZ += 3.7f)
-        //    {
-        //        PlantarUnaPlanta(ileraX, ileraZ);
-
-        //    }
-        //}
 
         for (float ileraZ = startZ; ileraZ < endZ; ileraZ += 3.7f)
         {
@@ -52,7 +44,7 @@ public class PlantingPineapplePlantGrid : MonoBehaviour
             }
             else if (OpcionPlantacion == 2)
             {
-                for (float ileraX = startX; ileraX < endX; ileraX += 0.5f)
+                for (float ileraX = startX; ileraX < endX; ileraX += 0.7f)
                 {
                     PlantarUnaPlanta(ileraX, ileraZ);
                 }
@@ -64,33 +56,25 @@ public class PlantingPineapplePlantGrid : MonoBehaviour
             void PlantarUnaPlanta(float x, float z)
             {
 
-                if (x >= 38.1f && x <= 61.2f && z >= 54f && z <= 71.1f)
+                if (x >= 35f && x <= 64f && z >= 54f && z <= 71.1f)
                     return;
                 float y = terrain.SampleHeight(new Vector3(x, 0, z));
 
-                // Crear contenedor vacío para la planta
                 GameObject contenedor = new GameObject("Planta_" + x.ToString("F2") + "_" + z.ToString("F2"));
                 contenedor.transform.position = new Vector3(x, y, z);
 
-                // Instanciar la planta como hijo del contenedor (50% de probabilidad para cada tipo)
                 GameObject prefab = (Random.Range(0f, 1f) > 0.5f) ? plantPrefab1 : plantPrefab2;
                 Vector3 posicionVisual = new Vector3(x, y - 0.01f, z);
                 GameObject plantaVisual = Instantiate(prefab, posicionVisual, Quaternion.identity, contenedor.transform);
 
-                // Quitar físicas si las tuviera
+
                 DestroyImmediate(plantaVisual.GetComponent<Rigidbody>());
                 DestroyImmediate(plantaVisual.GetComponent<Collider>());
 
-                //// Añadir el script de activación al contenedor (¡no al visual!)
-                //var script = contenedor.AddComponent<ActivadorPorProximidad>();
-                //script.referencia = jugadorOCamara;
-                //script.distanciaActivacion = distanciaActivacionC;
-                //script.chequearCadaFrame = true;
-                //script.objetoVisual = plantaVisual; // Se asume que el script lo usa para activar/desactivar
 
                 var script = contenedor.AddComponent<ActivadorPorProximidad2>();
-                script.referencia = jugadorOCamara;           // (Por si usas la posición para distancia)
-                script.camaraJugador = mainCamera; // <-- AQUÍ debes pasar la Main Camera
+                script.referencia = jugadorOCamara;        
+                script.camaraJugador = mainCamera; 
                 script.distanciaActivacion = distanciaActivacionC;
                 script.chequearCadaFrame = true;
                 script.objetoVisual = plantaVisual;

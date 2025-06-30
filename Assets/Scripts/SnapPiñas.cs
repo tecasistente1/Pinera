@@ -13,7 +13,7 @@ public class SnapPiñas : MonoBehaviour
 
     private bool yaFueCosechada = false;
     private bool enSnapCamion = false;
-    private PuntoSnapPiña slotActual; // Referencia al slot actual si lo tiene
+    private PuntoSnapPiña slotActual;
 
     void Start()
     {
@@ -59,7 +59,7 @@ public class SnapPiñas : MonoBehaviour
         if (rb != null && !enSnapCamion)
         {
             rb.isKinematic = false;
-            // Limpia el slot si existe (para máxima robustez)
+        
             if (slotActual != null)
             {
                 slotActual.ResetSlot(this);
@@ -84,7 +84,6 @@ public class SnapPiñas : MonoBehaviour
 
             enSnapCamion = true;
 
-            // Guarda la referencia al slot si la tiene
             slotActual = puntoSnap.GetComponent<PuntoSnapPiña>();
 
             Debug.Log("Piña colocada en el snap del camión: " + gameObject.name);
@@ -99,7 +98,6 @@ public class SnapPiñas : MonoBehaviour
             rb.isKinematic = false;
             enSnapCamion = false;
 
-            // Libera el slot si lo tiene
             if (slotActual != null)
             {
                 slotActual.ResetSlot(this);

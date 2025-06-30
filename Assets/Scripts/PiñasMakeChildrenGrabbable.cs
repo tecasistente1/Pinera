@@ -10,7 +10,6 @@ public class PiñasMakeChildrenGrabbable : MonoBehaviour
             Collider col = child.GetComponent<Collider>();
             if (col == null)
             {
-                // Puedes elegir el tipo de collider según el nombre, o usar siempre Capsule
                 col = child.gameObject.AddComponent<BoxCollider>();
             }
 

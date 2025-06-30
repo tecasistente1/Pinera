@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class ActivadorPorProximidad2 : MonoBehaviour
 {
-    public Transform referencia; // Jugador o cámara para la distancia
-    public Camera camaraJugador; // <-- ¡Arrástrala aquí en el Inspector!
+    public Transform referencia; 
+    public Camera camaraJugador; 
     public float distanciaActivacion = 100f;
     public bool chequearCadaFrame = false;
     public float intervaloChequeo = 0.5f;
     private float tiempoSiguienteChequeo = 0f;
-    public GameObject objetoVisual; // El hijo visual que se activa/desactiva
+    public GameObject objetoVisual; 
 
     void Start()
     {
@@ -20,8 +20,8 @@ public class ActivadorPorProximidad2 : MonoBehaviour
         if (objetoVisual == null)
         {
             Debug.LogError("El objeto visual no está asignado en el Inspector.");
-            // Asignar el objeto hijo como objetoVisual si no está asignado
-            objetoVisual = transform.GetChild(0).gameObject; // Asume que el primer hijo es el visual
+            
+            objetoVisual = transform.GetChild(0).gameObject; 
         }
     }
 
@@ -50,8 +50,7 @@ public class ActivadorPorProximidad2 : MonoBehaviour
         Renderer rend = objetoVisual.GetComponent<Renderer>();
         if (rend == null)
             rend = objetoVisual.GetComponentInChildren<Renderer>();
-        if (rend == null) return; // Si aún no lo encuentra, no hace nada
-
+        if (rend == null) return; 
         bool enVision = GeometryUtility.TestPlanesAABB(planes, rend.bounds);
         if (objetoVisual.activeSelf != enVision)
         {

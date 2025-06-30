@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class ActivadorPorProximidad : MonoBehaviour
 {
-    public Transform referencia; // Jugador o cámara
+    public Transform referencia; 
     public float distanciaActivacion = 100f;
     public bool chequearCadaFrame = false;
     public float intervaloChequeo = 0.5f;
     private float tiempoSiguienteChequeo = 0f;
-    public GameObject objetoVisual; // El hijo visual que se activa/desactiva
+    public GameObject objetoVisual; 
 
     void Start()
     {
