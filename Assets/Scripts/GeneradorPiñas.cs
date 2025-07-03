@@ -44,7 +44,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                         continue;
 
                     float y = terrain.SampleHeight(new Vector3(ileraX, 0, ileraZ));
-                    Vector3 posicion = new Vector3(ileraX + 0.3f, y + 0.05f, ileraZ + 0.1f);
+                    Vector3 posicion = new Vector3(ileraX, y , ileraZ + 0.35f);
                     Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
 
 
@@ -60,7 +60,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                     {
                         visual = Instantiate(pineapple1, posicion, rotacion);
                     }
-                    float randonomScale = Random.Range(0.13f, 0.09f);
+                    float randonomScale = Random.Range(0.17f, 0.09f);
                     visual.transform.localScale = Vector3.one * randonomScale;
                     visual.transform.SetParent(contenedor.transform);
 
@@ -87,14 +87,14 @@ public class PlantingPineappleGrid : MonoBehaviour
             }
             else if (opcionSiembra == 2)
             {
-                for (float ileraX = startX; ileraX < endX; ileraX += 0.5f)
+                for (float ileraX = startX; ileraX < endX; ileraX += 0.7f)
                 {
                 
                     if (ileraX >= 38.1f && ileraX <= 61.2f && ileraZ >= 54f && ileraZ <= 71.1f)
                         continue;
 
                     float y = terrain.SampleHeight(new Vector3(ileraX, 0, ileraZ));
-                    Vector3 posicion = new Vector3(ileraX + 0.3f, y + 0.05f, ileraZ + 0.1f);
+                    Vector3 posicion = new Vector3(ileraX , y, ileraZ + 0.35f);
                     Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
 
 
@@ -110,7 +110,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                     {
                         visual = Instantiate(pineapple1, posicion, rotacion);
                     }
-                    float randonomScale = Random.Range(0.13f, 0.09f);
+                    float randonomScale = Random.Range(0.17f, 0.09f);
                     visual.transform.localScale = Vector3.one * randonomScale;
                     visual.transform.SetParent(contenedor.transform);
 

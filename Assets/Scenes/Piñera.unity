@@ -33313,7 +33313,7 @@ MonoBehaviour:
   jugadorOCamara: {fileID: 608141158}
   mainCamera: {fileID: 1153058093}
   distanciaActivacionC: 25
-  opcionSiembra: 1
+  opcionSiembra: 2
   usarBajaResolucion: 1
 --- !u!1 &2011156593
 GameObject:
