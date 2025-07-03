@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/3D Laboratory Environment with Appratus/Scenes/Laboratory Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: "Assets/Scenes/Pi\xF1era.unity"
+    guid: c07b6890154f83843a2b9487ff7f1e9e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 798a9d9f74bfeb94bbb836686c116577, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
