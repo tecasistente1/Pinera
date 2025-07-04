@@ -60,7 +60,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                     {
                         visual = Instantiate(pineapple1, posicion, rotacion);
                     }
-                    float randonomScale = Random.Range(0.17f, 0.09f);
+                    float randonomScale = Random.Range(1.3f, 0.8f);
                     visual.transform.localScale = Vector3.one * randonomScale;
                     visual.transform.SetParent(contenedor.transform);
 
