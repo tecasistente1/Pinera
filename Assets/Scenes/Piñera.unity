@@ -1744,9 +1744,9 @@ MonoBehaviour:
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 608141158}
   mainCamera: {fileID: 1153058093}
-  distanciaActivacionC: 20
+  distanciaActivacionC: 30
   bajaResolucion: 1
-  OpcionPlantacion: 1
+  OpcionPlantacion: 2
 --- !u!4 &187862390
 Transform:
   m_ObjectHideFlags: 0
@@ -7370,9 +7370,9 @@ MonoBehaviour:
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 608141158}
   mainCamera: {fileID: 1153058093}
-  distanciaActivacionC: 15
+  distanciaActivacionC: 25
   altaDensidad: 0
-  usarObjetosExtras: 0
+  usarObjetosExtras: 1
   plantaPrincipal: 1
 --- !u!1 &777049958
 GameObject:

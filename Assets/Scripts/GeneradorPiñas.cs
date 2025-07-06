@@ -19,15 +19,19 @@ public class PlantingPineappleGrid : MonoBehaviour
     {
         int contPlants = 0;
 
-        float[] zonasX = { 5.5f, 38.2f, 71.1f };
-        float zMin1 = 4.7f, zMax1 = 46.9f;
-        float zMin2 = 54f, zMax2 = 94.7f;
+        //float[] zonasX = { 5.5f, 38.2f, 71.1f };
+        //float zMin1 = 4.7f, zMax1 = 46.9f;
+        //float zMin2 = 54f, zMax2 = 94.7f;
+
+        float[] zonasX = {38.2f};
+        float zMin1 = 41.8f, zMax1 = 46.9f;
+       
 
         foreach (float startX in zonasX)
         {
             float endX = startX + 24f;
             colocarPiñas(startX, endX, zMin1, zMax1, ref contPlants);
-            colocarPiñas(startX, endX, zMin2, zMax2, ref contPlants);
+            //colocarPiñas(startX, endX, zMin2, zMax2, ref contPlants);
         }
 
         Debug.Log("Total de piñas colocadas: " + contPlants);
