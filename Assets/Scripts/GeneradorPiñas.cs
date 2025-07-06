@@ -5,12 +5,14 @@ public class PlantingPineappleGrid : MonoBehaviour
 {
     public GameObject pineapple1;
     public GameObject pineapple2;
+    public GameObject pineapple3; 
+    public GameObject pineapple4; 
     public Terrain terrain;
     public Transform jugadorOCamara;
     public Camera mainCamera;
     public float distanciaActivacionC = 20f;
     public int opcionSiembra = 1;
-    public bool usarBajaResolucion = false;
+    public int numeroDePiñaAsembrar = 4;
 
 
     void Start()
@@ -52,13 +54,21 @@ public class PlantingPineappleGrid : MonoBehaviour
                     contenedor.transform.position = posicion;
 
                     GameObject visual;
-                    if (usarBajaResolucion)
+                    if (numeroDePiñaAsembrar == 1)
+                    {
+                        visual = Instantiate(pineapple1, posicion, rotacion);
+                    }
+                    else if(numeroDePiñaAsembrar == 2)
                     {
                         visual = Instantiate(pineapple2, posicion, rotacion);
                     }
+                    else if (numeroDePiñaAsembrar == 3)
+                    {
+                        visual = Instantiate(pineapple3, posicion, rotacion);
+                    }
                     else
                     {
-                        visual = Instantiate(pineapple1, posicion, rotacion);
+                        visual = Instantiate(pineapple4, posicion, rotacion);
                     }
                     float randonomScale = Random.Range(1.3f, 0.8f);
                     visual.transform.localScale = Vector3.one * randonomScale;
@@ -102,13 +112,21 @@ public class PlantingPineappleGrid : MonoBehaviour
                     contenedor.transform.position = posicion;
 
                     GameObject visual;
-                    if (usarBajaResolucion)
+                    if (numeroDePiñaAsembrar == 1)
+                    {
+                        visual = Instantiate(pineapple1, posicion, rotacion);
+                    }
+                    else if (numeroDePiñaAsembrar == 2)
                     {
                         visual = Instantiate(pineapple2, posicion, rotacion);
                     }
+                    else if (numeroDePiñaAsembrar == 3)
+                    {
+                        visual = Instantiate(pineapple3, posicion, rotacion);
+                    }
                     else
                     {
-                        visual = Instantiate(pineapple1, posicion, rotacion);
+                        visual = Instantiate(pineapple4, posicion, rotacion);
                     }
                     float randonomScale = Random.Range(1.3f, 0.8f);
                     visual.transform.localScale = Vector3.one * randonomScale;

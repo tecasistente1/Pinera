@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pineapple1_prefab Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7633354466403042790, guid: 532926dc010a6954fb2829dc8b813587, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.55348784
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633354466403042790, guid: 532926dc010a6954fb2829dc8b813587, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.35480177
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633354466403042790, guid: 532926dc010a6954fb2829dc8b813587, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.2000115
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633354466403042790, guid: 532926dc010a6954fb2829dc8b813587, type: 3}
+      propertyPath: m_LODs.Array.data[3].screenRelativeHeight
+      value: 0.050130643
+      objectReference: {fileID: 0}
     - target: {fileID: 8337200191060253709, guid: 532926dc010a6954fb2829dc8b813587, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.92541

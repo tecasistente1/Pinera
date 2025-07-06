@@ -5,12 +5,17 @@ public class PlantingGrassGrid: MonoBehaviour
 {
     public GameObject GrassObjectPrefab1; 
     public GameObject GrassObjectPrefab2;
+    public GameObject GrassObjectPrefab3;
+    public GameObject GrassObjectPrefab4; 
+    public GameObject GrassObjectPrefab5;
     public Terrain terrain;         
     public Transform jugadorOCamara;
     public Camera mainCamera;
     public float distanciaActivacionC = 20f;
     private int contPlants = 0; 
     public bool altaDensidad = false; 
+    public bool usarObjetosExtras = true;
+    public int plantaPrincipal = 1;
 
 
     private void InstanciarPlantaConContenedor(Vector3 position, GameObject prefab)
@@ -50,18 +55,29 @@ public class PlantingGrassGrid: MonoBehaviour
                 float worldY = terrain.SampleHeight(new Vector3(worldX, 0, worldZ));
 
                 Vector3 basePosition = new Vector3(worldX, worldY + 0.1234f, worldZ);
-                InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab1);
+                if (plantaPrincipal == 1)
+                    InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab1);
+                else if (plantaPrincipal == 2)
+                    InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab2);
+                else if (plantaPrincipal == 3)
+                    InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab3);
+                else if (plantaPrincipal == 4)
+                    InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab4);
+                else if (plantaPrincipal == 5)
+                    InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab5);
 
-                int cantidadExtras = (randomValue < 1f) ? 1 :
+                if (usarObjetosExtras)
+                {
+                    int cantidadExtras = (randomValue < 1f) ? 1 :
                                      (randomValue < 2f) ? 2 :
                                      (randomValue < 3f) ? 3 : 0;
-
-                for (int i = 0; i < cantidadExtras; i++)
-                {
-                    float extraX = Random.Range(inicioX, finX);
-                    worldY = terrain.SampleHeight(new Vector3(extraX, 0, worldZ)); 
-                    Vector3 extraPos = new Vector3(extraX, worldY + 0.1234f, worldZ);
-                    InstanciarPlantaConContenedor(extraPos, GrassObjectPrefab2);
+                    for (int i = 0; i < cantidadExtras; i++)
+                    {
+                        float extraX = Random.Range(inicioX, finX);
+                        worldY = terrain.SampleHeight(new Vector3(extraX, 0, worldZ));
+                        Vector3 extraPos = new Vector3(extraX, worldY + 0.1234f, worldZ);
+                        InstanciarPlantaConContenedor(extraPos, GrassObjectPrefab2);
+                    }
                 }
             }
         }
@@ -99,7 +115,7 @@ public class PlantingGrassGrid: MonoBehaviour
             //x
             GenerarPlantasZona(1f, 4f, 1f, 3f, 100f, 1f);   
             GenerarPlantasZona(47.3f, 53f, 1f, 3f, 30f, 1f);
-            GenerarPlantasZona(47.3f, 53f, 1f, 36f, 36f, 1f);
+            GenerarPlantasZona(47.3f, 53f, 1f, 36f, 63.5f, 1f);
             GenerarPlantasZona(47.3f, 53f, 1f, 69.3f, 97f, 1f);
             GenerarPlantasZona(97f, 100f, 1f, 3f, 100f, 1f);
 

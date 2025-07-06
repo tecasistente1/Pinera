@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fruits MiniAsset
+* source:	https://sketchfab.com/3d-models/fruits-miniasset-9e18d120c0484668b03cc0a3ff344761
+* author:	Mikesmax_3 (https://sketchfab.com/smss31451)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fruits MiniAsset" (https://sketchfab.com/3d-models/fruits-miniasset-9e18d120c0484668b03cc0a3ff344761) by Mikesmax_3 (https://sketchfab.com/smss31451) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
