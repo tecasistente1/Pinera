@@ -12,7 +12,7 @@ public class PlantingPineappleGrid : MonoBehaviour
     public Camera mainCamera;
     public float distanciaActivacionC = 20f;
     public int opcionSiembra = 1;
-    public int numeroDePiñaAsembrar = 4;
+    public int numeroDePinaAsembrar = 4;
 
 
     void Start()
@@ -23,21 +23,21 @@ public class PlantingPineappleGrid : MonoBehaviour
         //float zMin1 = 4.7f, zMax1 = 46.9f;
         //float zMin2 = 54f, zMax2 = 94.7f;
 
-        float[] zonasX = {38.2f};
-        float zMin1 = 41.8f, zMax1 = 46.9f;
+        float[] zonasX = {40.2f};
+        float zMin1 = 45.4f, zMax1 = 46.9f;
        
 
         foreach (float startX in zonasX)
         {
-            float endX = startX + 24f;
-            colocarPiñas(startX, endX, zMin1, zMax1, ref contPlants);
-            //colocarPiñas(startX, endX, zMin2, zMax2, ref contPlants);
+            float endX = startX + 20f;
+            colocarPinas(startX, endX, zMin1, zMax1, ref contPlants);
+            //colocarPinas(startX, endX, zMin2, zMax2, ref contPlants);
         }
 
-        Debug.Log("Total de piñas colocadas: " + contPlants);
+        Debug.Log("Total de pinas colocadas: " + contPlants);
     }
 
-    void colocarPiñas(float startX, float endX, float startZ, float endZ, ref int contador)
+    void colocarPinas(float startX, float endX, float startZ, float endZ, ref int contador)
     {
         for (float ileraZ = startZ; ileraZ < endZ; ileraZ += 3.7f)
         {
@@ -54,19 +54,19 @@ public class PlantingPineappleGrid : MonoBehaviour
                     Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
 
 
-                    GameObject contenedor = new GameObject("Contenedor_Piña");
+                    GameObject contenedor = new GameObject("Contenedor_Pina");
                     contenedor.transform.position = posicion;
 
                     GameObject visual;
-                    if (numeroDePiñaAsembrar == 1)
+                    if (numeroDePinaAsembrar == 1)
                     {
                         visual = Instantiate(pineapple1, posicion, rotacion);
                     }
-                    else if(numeroDePiñaAsembrar == 2)
+                    else if(numeroDePinaAsembrar == 2)
                     {
                         visual = Instantiate(pineapple2, posicion, rotacion);
                     }
-                    else if (numeroDePiñaAsembrar == 3)
+                    else if (numeroDePinaAsembrar == 3)
                     {
                         visual = Instantiate(pineapple3, posicion, rotacion);
                     }
@@ -78,10 +78,10 @@ public class PlantingPineappleGrid : MonoBehaviour
                     visual.transform.localScale = Vector3.one * randonomScale;
                     visual.transform.SetParent(contenedor.transform);
 
-                    contenedor.AddComponent<PiñasMakeChildrenGrabbable>();
+                    contenedor.AddComponent<PinasMakeChildrenGrabbable>();
                     contenedor.AddComponent<SnapInteractor>();
 
-                    var snap = contenedor.AddComponent<SnapPiñas>();
+                    var snap = contenedor.AddComponent<SnapPinas>();
                     snap.objetoVisual = visual;
                     snap.posicionOrigen = posicion;
                     snap.rotacionOrigen = rotacion;
@@ -112,19 +112,19 @@ public class PlantingPineappleGrid : MonoBehaviour
                     Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
 
 
-                    GameObject contenedor = new GameObject("Contenedor_Piña");
+                    GameObject contenedor = new GameObject("Contenedor_Pina");
                     contenedor.transform.position = posicion;
 
                     GameObject visual;
-                    if (numeroDePiñaAsembrar == 1)
+                    if (numeroDePinaAsembrar == 1)
                     {
                         visual = Instantiate(pineapple1, posicion, rotacion);
                     }
-                    else if (numeroDePiñaAsembrar == 2)
+                    else if (numeroDePinaAsembrar == 2)
                     {
                         visual = Instantiate(pineapple2, posicion, rotacion);
                     }
-                    else if (numeroDePiñaAsembrar == 3)
+                    else if (numeroDePinaAsembrar == 3)
                     {
                         visual = Instantiate(pineapple3, posicion, rotacion);
                     }
@@ -136,10 +136,10 @@ public class PlantingPineappleGrid : MonoBehaviour
                     visual.transform.localScale = Vector3.one * randonomScale;
                     visual.transform.SetParent(contenedor.transform);
 
-                    contenedor.AddComponent<PiñasMakeChildrenGrabbable>();
+                    contenedor.AddComponent<PinasMakeChildrenGrabbable>();
                     contenedor.AddComponent<SnapInteractor>();
 
-                    var snap = contenedor.AddComponent<SnapPiñas>();
+                    var snap = contenedor.AddComponent<SnapPinas>();
                     snap.objetoVisual = visual;
                     snap.posicionOrigen = posicion;
                     snap.rotacionOrigen = rotacion;

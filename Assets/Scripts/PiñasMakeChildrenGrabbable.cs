@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class PiñasMakeChildrenGrabbable : MonoBehaviour
+public class PinasMakeChildrenGrabbable : MonoBehaviour
 {
     void Start()
     {

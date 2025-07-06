@@ -27,7 +27,7 @@ public class PlantingPineapplePlantGrid : MonoBehaviour
             PlantarBloques(startX, endX, zMin2, zMax2);
         }
 
-        Debug.Log("Total de plantas de piñas colocadas: " + contPlants);
+        Debug.Log("Total de plantas de pinas colocadas: " + contPlants);
     }
 
     void PlantarBloques(float startX, float endX, float startZ, float endZ)

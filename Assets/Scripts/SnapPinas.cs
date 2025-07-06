@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class SnapPiñas : MonoBehaviour
+public class SnapPinas : MonoBehaviour
 {
     public GameObject objetoVisual;
     public Vector3 posicionOrigen;
@@ -13,7 +13,7 @@ public class SnapPiñas : MonoBehaviour
 
     private bool yaFueCosechada = false;
     private bool enSnapCamion = false;
-    private PuntoSnapPiña slotActual;
+    private PuntoSnapPina slotActual;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class SnapPiñas : MonoBehaviour
             objetoVisual = transform.GetChild(0).gameObject;
 
         if (objetoVisual == null)
-            Debug.LogWarning("SnapPiñas: No se encontró objetoVisual en " + gameObject.name);
+            Debug.LogWarning("SnapPinas: No se encontró objetoVisual en " + gameObject.name);
 
         if (posicionOrigen == Vector3.zero)
             posicionOrigen = objetoVisual != null ? objetoVisual.transform.position : transform.position;
@@ -84,9 +84,9 @@ public class SnapPiñas : MonoBehaviour
 
             enSnapCamion = true;
 
-            slotActual = puntoSnap.GetComponent<PuntoSnapPiña>();
+            slotActual = puntoSnap.GetComponent<PuntoSnapPina>();
 
-            Debug.Log("Piña colocada en el snap del camión: " + gameObject.name);
+            Debug.Log("Pina colocada en el snap del camión: " + gameObject.name);
         }
         Debug.Log("Entrando en zona snap camión: " + gameObject.name);
     }

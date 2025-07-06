@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PuntoSnapPiña : MonoBehaviour
+public class PuntoSnapPina : MonoBehaviour
 {
-    private SnapPiñas snapActual = null;
+    private SnapPinas snapActual = null;
 
-    public void ResetSlot(SnapPiñas snap)
+    public void ResetSlot(SnapPinas snap)
     {
         if (snapActual == snap)
             snapActual = null;
@@ -12,7 +12,7 @@ public class PuntoSnapPiña : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (snapActual != null) return;
-        SnapPiñas snap = other.GetComponentInParent<SnapPiñas>();
+        SnapPinas snap = other.GetComponentInParent<SnapPinas>();
         if (snap != null)
         {
             Debug.Log($"ENTER: {other.name} | SnapActual: {(snapActual != null ? snapActual.name : "null")}");
@@ -23,7 +23,7 @@ public class PuntoSnapPiña : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        SnapPiñas snap = other.GetComponentInParent<SnapPiñas>();
+        SnapPinas snap = other.GetComponentInParent<SnapPinas>();
         if (snap != null && snap == snapActual)
         {
             Debug.Log($"EXIT: {other.name} | SnapActual: {(snapActual != null ? snapActual.name : "null")}");
