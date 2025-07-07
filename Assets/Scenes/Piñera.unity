@@ -3988,9 +3988,9 @@ MonoBehaviour:
   GrassObjectPrefab5: {fileID: 1911098307634055376, guid: f12045a3df33d5045b88aff8da81cf65, type: 3}
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 608141158}
-  distanciaActivacionC: 6
-  altaDensidad: 1
-  usarObjetosExtras: 1
+  distanciaActivacionC: 4
+  altaDensidad: 0
+  usarObjetosExtras: 0
   plantaPrincipal: 1
 --- !u!4 &497804709
 Transform:
@@ -6450,7 +6450,27 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3001580928987436235, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3155967819442080451, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378123502774834577, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966972200558455441, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648703297094591765, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652423436109183535, guid: 79ebd591547e64747987dff3e520602e, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -6492,6 +6512,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4993688726463796111, guid: 79ebd591547e64747987dff3e520602e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560953247684137142, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868752388908952274, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363463995315143440, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654541498047587346, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805980154287856866, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8456819997662893141, guid: 79ebd591547e64747987dff3e520602e, type: 3}
@@ -10620,8 +10660,8 @@ MonoBehaviour:
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 608141158}
   distanciaActivacionC: 20
-  bajaResolucion: 0
-  OpcionPlantacion: 2
+  bajaResolucion: 1
+  OpcionPlantacion: 1
 --- !u!4 &1022272544
 Transform:
   m_ObjectHideFlags: 0
@@ -12959,8 +12999,8 @@ MonoBehaviour:
   plantPrefab2: {fileID: 3412183555372297356, guid: e55788962f6c8584bbe6f17e009b11f4, type: 3}
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 608141158}
-  distanciaActivacionC: 6
-  OpcionPlantacion: 2
+  distanciaActivacionC: 4
+  OpcionPlantacion: 1
 --- !u!4 &1239267736
 Transform:
   m_ObjectHideFlags: 0
@@ -19892,7 +19932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1995037720
 Transform:
   m_ObjectHideFlags: 0
@@ -19927,9 +19967,9 @@ MonoBehaviour:
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 608141158}
   mainCamera: {fileID: 1153058093}
-  distanciaActivacionC: 8
+  distanciaActivacionC: 4
   opcionSiembra: 2
-  numeroDePinaAsembrar: 2
+  numeroDePinaAsembrar: 3
 --- !u!1 &2011156593
 GameObject:
   m_ObjectHideFlags: 0

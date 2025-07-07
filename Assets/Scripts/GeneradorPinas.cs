@@ -29,7 +29,7 @@ public class PlantingPineappleGrid : MonoBehaviour
 
         foreach (float startX in zonasX)
         {
-            float endX = startX + 20f;
+            float endX = startX + 11f;
             colocarPinas(startX, endX, zMin1, zMax1, ref contPlants);
             //colocarPinas(startX, endX, zMin2, zMax2, ref contPlants);
         }
