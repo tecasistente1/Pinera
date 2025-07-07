@@ -1724,7 +1724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &187862389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,12 +1740,12 @@ MonoBehaviour:
   tree1: {fileID: 842519855651000771, guid: 48ee6d6308b47034aaec377be980751c, type: 3}
   tree2: {fileID: 5811388923002012768, guid: 585105a8f5132db4d87826effbee8a24, type: 3}
   tree3: {fileID: 14531762916664566, guid: 2fea1e89b43c7354a916c8af22d149e7, type: 3}
-  tree4: {fileID: 7553859599047228408, guid: 8635b75603f205d48bfbfc86da75d284, type: 3}
+  tree4: {fileID: 1507042556976663224, guid: 8635b75603f205d48bfbfc86da75d284, type: 3}
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 608141158}
   mainCamera: {fileID: 1153058093}
   distanciaActivacionC: 30
-  bajaResolucion: 1
+  bajaResolucion: 0
   OpcionPlantacion: 2
 --- !u!4 &187862390
 Transform:
@@ -3952,6 +3952,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 298050929}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &497804706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497804709}
+  - component: {fileID: 497804707}
+  m_Layer: 0
+  m_Name: PlantasPasto2.0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &497804707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497804706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a80cf7e2a7cf8449f53a1c24055d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrassObjectPrefab1: {fileID: 8379705914626203726, guid: 6e14792e7a8f12049a5db6ed256e31f2, type: 3}
+  GrassObjectPrefab2: {fileID: 651593144059944836, guid: d75495c8963a9e64a976a972aed1b2fd, type: 3}
+  GrassObjectPrefab3: {fileID: 4968074260272301401, guid: 4792b2e026fb3fa47baf2a6c4085b05c, type: 3}
+  GrassObjectPrefab4: {fileID: 3200823329269921881, guid: bacd1d1747d8b2842bcbda7850f57169, type: 3}
+  GrassObjectPrefab5: {fileID: 1911098307634055376, guid: f12045a3df33d5045b88aff8da81cf65, type: 3}
+  terrain: {fileID: 1641748647}
+  jugadorOCamara: {fileID: 608141158}
+  distanciaActivacionC: 6
+  altaDensidad: 1
+  usarObjetosExtras: 1
+  plantaPrincipal: 1
+--- !u!4 &497804709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497804706}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501642617
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,6 +5189,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 730217146}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+--- !u!1 &590134572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2108232851868128949, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+  m_PrefabInstance: {fileID: 665654369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &594499616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6441,7 +6501,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8456819997662893141, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 767815771}
   m_SourcePrefab: {fileID: 100100000, guid: 79ebd591547e64747987dff3e520602e, type: 3}
 --- !u!1 &666768874
 GameObject:
@@ -6669,7 +6732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &689188288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7334,7 +7397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &750526974
 Transform:
   m_ObjectHideFlags: 0
@@ -7374,6 +7437,29 @@ MonoBehaviour:
   altaDensidad: 0
   usarObjetosExtras: 1
   plantaPrincipal: 1
+--- !u!1 &767815759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8456819997662893141, guid: 79ebd591547e64747987dff3e520602e, type: 3}
+  m_PrefabInstance: {fileID: 665654369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &767815771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767815759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e033b64bdf26934a8b1bac1457ae2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referencia: {fileID: 608141158}
+  camaraJugador: {fileID: 1153058093}
+  distanciaActivacion: 30
+  chequearCadaFrame: 1
+  intervaloChequeo: 0.5
+  objetoVisual: {fileID: 590134572}
 --- !u!1 &777049958
 GameObject:
   m_ObjectHideFlags: 0
@@ -10498,6 +10584,59 @@ Transform:
   - {fileID: 892546307}
   m_Father: {fileID: 24625957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1022272541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022272544}
+  - component: {fileID: 1022272542}
+  m_Layer: 0
+  m_Name: Arboles2.0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1022272542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022272541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ebf0218ad04eb4ea969da2524a1b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree1: {fileID: 842519855651000771, guid: 48ee6d6308b47034aaec377be980751c, type: 3}
+  tree2: {fileID: 5811388923002012768, guid: 585105a8f5132db4d87826effbee8a24, type: 3}
+  tree3: {fileID: 14531762916664566, guid: 2fea1e89b43c7354a916c8af22d149e7, type: 3}
+  tree4: {fileID: 1507042556976663224, guid: 8635b75603f205d48bfbfc86da75d284, type: 3}
+  terrain: {fileID: 1641748647}
+  jugadorOCamara: {fileID: 608141158}
+  distanciaActivacionC: 20
+  bajaResolucion: 0
+  OpcionPlantacion: 2
+--- !u!4 &1022272544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022272541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1031322667
 GameObject:
   m_ObjectHideFlags: 0
@@ -12786,6 +12925,56 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 598903597}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1239267733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239267736}
+  - component: {fileID: 1239267734}
+  m_Layer: 0
+  m_Name: "PlantasPi\xF1a2.0"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1239267734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239267733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd546c1a8638074495f22872ff25ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantPrefab1: {fileID: 8420851255230965050, guid: 8a85bf9e47b3c5849ad48840c9015cbf, type: 3}
+  plantPrefab2: {fileID: 3412183555372297356, guid: e55788962f6c8584bbe6f17e009b11f4, type: 3}
+  terrain: {fileID: 1641748647}
+  jugadorOCamara: {fileID: 608141158}
+  distanciaActivacionC: 6
+  OpcionPlantacion: 2
+--- !u!4 &1239267736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239267733}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.19, y: 4.89, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1243308450
 GameObject:
@@ -19703,7 +19892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1995037720
 Transform:
   m_ObjectHideFlags: 0
@@ -19738,9 +19927,9 @@ MonoBehaviour:
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 608141158}
   mainCamera: {fileID: 1153058093}
-  distanciaActivacionC: 20
+  distanciaActivacionC: 8
   opcionSiembra: 2
-  "numeroDePi\xF1aAsembrar": 2
+  numeroDePinaAsembrar: 2
 --- !u!1 &2011156593
 GameObject:
   m_ObjectHideFlags: 0
@@ -20591,9 +20780,12 @@ SceneRoots:
   - {fileID: 608141158}
   - {fileID: 32177814779258839}
   - {fileID: 689188289}
+  - {fileID: 1239267736}
   - {fileID: 750526974}
+  - {fileID: 497804709}
   - {fileID: 1995037720}
   - {fileID: 187862390}
+  - {fileID: 1022272544}
   - {fileID: 1222890056}
   - {fileID: 1031322670}
   - {fileID: 1891242117}

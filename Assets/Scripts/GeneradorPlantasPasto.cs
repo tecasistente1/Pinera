@@ -30,8 +30,8 @@ public class PlantingGrassGrid: MonoBehaviour
         DestroyImmediate(visual.GetComponent<Collider>());
 
         var script = contenedor.AddComponent<ActivadorPorProximidad2>();
-        script.referencia = jugadorOCamara;       
-        script.camaraJugador = mainCamera; 
+        script.referencia = jugadorOCamara;
+        script.camaraJugador = mainCamera;
         script.distanciaActivacion = distanciaActivacionC;
         script.chequearCadaFrame = true;
         script.objetoVisual = visual;
