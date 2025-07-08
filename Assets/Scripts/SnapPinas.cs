@@ -21,7 +21,7 @@ public class SnapPinas : MonoBehaviour
             objetoVisual = transform.GetChild(0).gameObject;
 
         if (objetoVisual == null)
-            Debug.LogWarning("SnapPinas: No se encontró objetoVisual en " + gameObject.name);
+            Debug.LogWarning("SnapPinas: No se encontrï¿½ objetoVisual en " + gameObject.name);
 
         if (posicionOrigen == Vector3.zero)
             posicionOrigen = objetoVisual != null ? objetoVisual.transform.position : transform.position;
@@ -79,16 +79,16 @@ public class SnapPinas : MonoBehaviour
             objetoVisual.transform.rotation = puntoSnap.rotation;
 
             rb.isKinematic = true;
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 
             enSnapCamion = true;
 
             slotActual = puntoSnap.GetComponent<PuntoSnapPina>();
 
-            Debug.Log("Pina colocada en el snap del camión: " + gameObject.name);
+            Debug.Log("Pina colocada en el snap del camiï¿½n: " + gameObject.name);
         }
-        Debug.Log("Entrando en zona snap camión: " + gameObject.name);
+        Debug.Log("Entrando en zona snap camiï¿½n: " + gameObject.name);
     }
 
     public void SalirZonaSnapCamion()
