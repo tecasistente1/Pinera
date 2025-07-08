@@ -6476,7 +6476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4993688726463796111, guid: 79ebd591547e64747987dff3e520602e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.753
+      value: 46.95
       objectReference: {fileID: 0}
     - target: {fileID: 4993688726463796111, guid: 79ebd591547e64747987dff3e520602e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20806,6 +20806,10 @@ PrefabInstance:
     - target: {fileID: 7690073793153457638, guid: 6f1a86dbacf2ad24f8235724abb4d62b, type: 3}
       propertyPath: m_Name
       value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690073793153457638, guid: 6f1a86dbacf2ad24f8235724abb4d62b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
