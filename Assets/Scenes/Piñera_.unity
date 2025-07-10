@@ -296,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &369809350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +387,7 @@ Terrain:
   m_GameObject: {fileID: 369809349}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 7cdf37a5c94aa734eafcfbe6e109dd95, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -473,6 +473,7 @@ MonoBehaviour:
   jugadorOCamara: {fileID: 967188935}
   mainCamera: {fileID: 967188932}
   distanciaActivacionC: 20
+  OpcionPlantacion: 1
 --- !u!4 &689188289
 Transform:
   m_ObjectHideFlags: 0
@@ -534,10 +535,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GrassObjectPrefab1: {fileID: 8379705914626203726, guid: 6e14792e7a8f12049a5db6ed256e31f2, type: 3}
   GrassObjectPrefab2: {fileID: 880478659260526264, guid: 5828be10f3923e945ab6dc68c964dadf, type: 3}
+  GrassObjectPrefab3: {fileID: 0}
+  GrassObjectPrefab4: {fileID: 0}
+  GrassObjectPrefab5: {fileID: 0}
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 967188935}
   mainCamera: {fileID: 967188932}
   distanciaActivacionC: 10
+  altaDensidad: 0
+  usarObjetosExtras: 1
+  plantaPrincipal: 1
 --- !u!1001 &967188930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1964,7 +1971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1854690758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2055,7 +2062,7 @@ Terrain:
   m_GameObject: {fileID: 1854690757}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 7cdf37a5c94aa734eafcfbe6e109dd95, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -2145,11 +2152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d3b7e1fdd0c8a40add9ab2d455a5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pineapple: {fileID: 8119328195947521928, guid: 7744eff8f0d4075439dfbc888940513d, type: 3}
+  pineapple1: {fileID: 0}
+  pineapple2: {fileID: 0}
+  pineapple3: {fileID: 0}
+  pineapple4: {fileID: 0}
   terrain: {fileID: 1641748647}
   jugadorOCamara: {fileID: 967188935}
   mainCamera: {fileID: 967188932}
   distanciaActivacionC: 15
+  opcionSiembra: 1
+  numeroDePinaAsembrar: 4
 --- !u!1001 &2123351176
 PrefabInstance:
   m_ObjectHideFlags: 0

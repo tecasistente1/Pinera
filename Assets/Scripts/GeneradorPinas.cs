@@ -29,7 +29,7 @@ public class PlantingPineappleGrid : MonoBehaviour
 
         foreach (float startX in zonasX)
         {
-            float endX = startX + 11f;
+            float endX = startX + 21f;
             colocarPinas(startX, endX, zMin1, zMax1, ref contPlants);
             //colocarPinas(startX, endX, zMin2, zMax2, ref contPlants);
         }
@@ -50,7 +50,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                         continue;
 
                     float y = terrain.SampleHeight(new Vector3(ileraX, 0, ileraZ));
-                    Vector3 posicion = new Vector3(ileraX, y , ileraZ + 0.35f);
+                    Vector3 posicion = new Vector3(ileraX - 0.0f, y + 0.45F, ileraZ);
                     Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
 
 
@@ -101,14 +101,14 @@ public class PlantingPineappleGrid : MonoBehaviour
             }
             else if (opcionSiembra == 2)
             {
-                for (float ileraX = startX; ileraX < endX; ileraX += 0.7f)
+                for (float ileraX = startX; ileraX < endX; ileraX += 0.8f)
                 {
                 
                     if (ileraX >= 38.1f && ileraX <= 61.2f && ileraZ >= 54f && ileraZ <= 71.1f)
                         continue;
 
                     float y = terrain.SampleHeight(new Vector3(ileraX, 0, ileraZ));
-                    Vector3 posicion = new Vector3(ileraX , y, ileraZ + 0.35f);
+                    Vector3 posicion = new Vector3(ileraX - 0.0f, y + 0.45F, ileraZ );
                     Quaternion rotacion = Quaternion.Euler(-90f, 0f, 0f);
 
 
