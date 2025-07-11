@@ -3,16 +3,12 @@ using UnityEngine;
 
 public class PlantingPineappleGrid : MonoBehaviour
 {
-    public GameObject pineapple1;
-    public GameObject pineapple2;
-    public GameObject pineapple3; 
-    public GameObject pineapple4; 
+    public GameObject pineapple;
     public Terrain terrain;
     public Transform jugadorOCamara;
     public Camera mainCamera;
     public float distanciaActivacionC = 20f;
     public int opcionSiembra = 1;
-    public int numeroDePinaAsembrar = 4;
 
 
     void Start()
@@ -57,23 +53,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                     GameObject contenedor = new GameObject("Contenedor_Pina");
                     contenedor.transform.position = posicion;
 
-                    GameObject visual;
-                    if (numeroDePinaAsembrar == 1)
-                    {
-                        visual = Instantiate(pineapple1, posicion, rotacion);
-                    }
-                    else if(numeroDePinaAsembrar == 2)
-                    {
-                        visual = Instantiate(pineapple2, posicion, rotacion);
-                    }
-                    else if (numeroDePinaAsembrar == 3)
-                    {
-                        visual = Instantiate(pineapple3, posicion, rotacion);
-                    }
-                    else
-                    {
-                        visual = Instantiate(pineapple4, posicion, rotacion);
-                    }
+                    GameObject visual = Instantiate(pineapple, posicion, rotacion);
                     float randonomScale = Random.Range(1.3f, 0.8f);
                     visual.transform.localScale = Vector3.one * randonomScale;
                     visual.transform.SetParent(contenedor.transform);
@@ -88,12 +68,11 @@ public class PlantingPineappleGrid : MonoBehaviour
 
 
 
-                    var script = contenedor.AddComponent<ActivadorPorProximidad2>();
+                    var script = contenedor.AddComponent<ActivadorPorProximidadPina>();
                     script.referencia = jugadorOCamara;
                     script.camaraJugador = mainCamera;
                     script.distanciaActivacion = distanciaActivacionC;
                     script.chequearCadaFrame = true;
-                    script.objetoVisual = visual;
 
 
                     contador++;
@@ -115,23 +94,7 @@ public class PlantingPineappleGrid : MonoBehaviour
                     GameObject contenedor = new GameObject("Contenedor_Pina");
                     contenedor.transform.position = posicion;
 
-                    GameObject visual;
-                    if (numeroDePinaAsembrar == 1)
-                    {
-                        visual = Instantiate(pineapple1, posicion, rotacion);
-                    }
-                    else if (numeroDePinaAsembrar == 2)
-                    {
-                        visual = Instantiate(pineapple2, posicion, rotacion);
-                    }
-                    else if (numeroDePinaAsembrar == 3)
-                    {
-                        visual = Instantiate(pineapple3, posicion, rotacion);
-                    }
-                    else
-                    {
-                        visual = Instantiate(pineapple4, posicion, rotacion);
-                    }
+                    GameObject visual = Instantiate(pineapple, posicion, rotacion);
                     float randonomScale = Random.Range(1.3f, 0.8f);
                     visual.transform.localScale = Vector3.one * randonomScale;
                     visual.transform.SetParent(contenedor.transform);
@@ -146,12 +109,11 @@ public class PlantingPineappleGrid : MonoBehaviour
 
 
 
-                    var script = contenedor.AddComponent<ActivadorPorProximidad2>();
+                    var script = contenedor.AddComponent<ActivadorPorProximidadPina>();
                     script.referencia = jugadorOCamara;
                     script.camaraJugador = mainCamera;
                     script.distanciaActivacion = distanciaActivacionC;
                     script.chequearCadaFrame = true;
-                    script.objetoVisual = visual;
 
 
                     contador++;

@@ -5,9 +5,6 @@ public class PlantingGrassGrid2: MonoBehaviour
 {
     public GameObject GrassObjectPrefab1; 
     public GameObject GrassObjectPrefab2;
-    public GameObject GrassObjectPrefab3;
-    public GameObject GrassObjectPrefab4; 
-    public GameObject GrassObjectPrefab5;
     public Terrain terrain;         
     public Transform jugadorOCamara;
     public float distanciaActivacionC = 20f;
@@ -60,14 +57,8 @@ public class PlantingGrassGrid2: MonoBehaviour
                 Vector3 basePosition = new Vector3(worldX, worldY + 0.001f, worldZ);
                 if (plantaPrincipal == 1)
                     InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab1, contendorVisual);
-                else if (plantaPrincipal == 2)
+                else
                     InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab2, contendorVisual);
-                else if (plantaPrincipal == 3)
-                    InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab3, contendorVisual);
-                else if (plantaPrincipal == 4)
-                    InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab4, contendorVisual);
-                else if (plantaPrincipal == 5)
-                    InstanciarPlantaConContenedor(basePosition, GrassObjectPrefab5, contendorVisual);
 
                 if (usarObjetosExtras)
                 {

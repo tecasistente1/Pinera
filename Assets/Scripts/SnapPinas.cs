@@ -15,13 +15,14 @@ public class SnapPinas : MonoBehaviour
     private bool enSnapCamion = false;
     private PuntoSnapPina slotActual;
 
+
     void Start()
     {
         if (objetoVisual == null && transform.childCount > 0)
             objetoVisual = transform.GetChild(0).gameObject;
 
         if (objetoVisual == null)
-            Debug.LogWarning("SnapPinas: No se encontr� objetoVisual en " + gameObject.name);
+            Debug.LogWarning("SnapPinas: No se encontro objetoVisual en " + gameObject.name);
 
         if (posicionOrigen == Vector3.zero)
             posicionOrigen = objetoVisual != null ? objetoVisual.transform.position : transform.position;
@@ -41,6 +42,8 @@ public class SnapPinas : MonoBehaviour
             grabInteractable.selectEntered.AddListener(OnGrabbed);
             grabInteractable.selectExited.AddListener(OnReleased);
         }
+
+        //objetoVisual.SetActive(false); // Desactivar visual al inicio
     }
 
 
@@ -50,6 +53,7 @@ public class SnapPinas : MonoBehaviour
         {
             rb.isKinematic = false;
             yaFueCosechada = true;
+            //objetoVisual.SetActive(true); // Activar visual al ser cosechada
         }
         enSnapCamion = false;
     }
@@ -104,5 +108,10 @@ public class SnapPinas : MonoBehaviour
                 slotActual = null;
             }
         }
+    }
+
+    public bool yaFueCosechadaPina()
+    {
+        return yaFueCosechada;
     }
 }
