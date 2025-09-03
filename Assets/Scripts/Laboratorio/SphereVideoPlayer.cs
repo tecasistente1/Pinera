@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class SphereVideoPlayer : MonoBehaviour
 {
@@ -11,11 +12,10 @@ public class SphereVideoPlayer : MonoBehaviour
     public VideoClip[] clips;
 
     [Header("Opcional")]
-    public bool loop = true;
+    public bool loop = false; // 👈 ahora mejor dejar en false si quieres que vuelva
 
     private void Start()
     {
-        // Tomar el índice elegido en la escena anterior
         int index = VideoManager.GetVideoIndexOrDefault(0);
 
         if (clips == null || clips.Length == 0)
@@ -30,6 +30,9 @@ public class SphereVideoPlayer : MonoBehaviour
         }
 
         StartCoroutine(PlaySelected(index));
+
+        // 🔹 Escuchar cuando el video termine
+        videoPlayer.loopPointReached += OnVideoFinished;
     }
 
     private IEnumerator PlaySelected(int index)
@@ -38,11 +41,27 @@ public class SphereVideoPlayer : MonoBehaviour
         videoPlayer.isLooping = loop;
         videoPlayer.clip = clips[index];
 
-        // Asegura preparación antes de reproducir (evita pantalla negra en algunos targets)
         videoPlayer.Prepare();
         while (!videoPlayer.isPrepared)
             yield return null;
 
         videoPlayer.Play();
+    }
+
+    private void OnVideoFinished(VideoPlayer vp)
+    {
+        // 🔹 Regresar a la escena anterior
+        //   Usamos SceneManager.GetActiveScene().buildIndex - 1
+        //   para volver a la escena de donde venías
+        int prevIndex = SceneManager.GetActiveScene().buildIndex - 1;
+
+        if (prevIndex >= 0)
+        {
+            SceneManager.LoadScene(prevIndex);
+        }
+        else
+        {
+            Debug.LogWarning("No hay escena anterior en Build Settings.");
+        }
     }
 }
