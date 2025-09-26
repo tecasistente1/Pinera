@@ -5372,9 +5372,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 643211919}
   clips:
-  - {fileID: 32900000, guid: c8a45f9c7e5e1cd4da1d1aaf804bc704, type: 3}
-  - {fileID: 32900000, guid: 8668e3c217091294c8cf299b2da6c2df, type: 3}
-  - {fileID: 0}
+  - {fileID: 32900000, guid: e1c7431c0c003cf48834f9f9e08a6eb0, type: 3}
+  - {fileID: 32900000, guid: 08b2000b7b90d7d48be327e9d8afc3a2, type: 3}
+  - {fileID: 32900000, guid: 89b5d5bb31390584b8467620c8975574, type: 3}
+  - {fileID: 32900000, guid: 89f17678cc528cb459875a5d76261408, type: 3}
+  - {fileID: 32900000, guid: 3dee2db87efd3364699110953a412552, type: 3}
+  - {fileID: 32900000, guid: bf6edbd3c51c49646b5dc1bf0bbfddd2, type: 3}
   videoSkybox: {fileID: 2100000, guid: 93158975a454f8643b19ec9a38ef6969, type: 2}
   loop: 1
 --- !u!4 &636491211
