@@ -3,40 +3,52 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
-public class SphereVideoPlayer : MonoBehaviour
+public class SkyboxVideoPlayer : MonoBehaviour
 {
-    [Header("Referencia al único VideoPlayer de la esfera")]
+    [Header("VideoPlayer de la escena")]
     public VideoPlayer videoPlayer;
 
     [Header("Clips disponibles (índices 0..N)")]
     public VideoClip[] clips;
 
+    [Header("Material del Skybox para el video 360")]
+    public Material videoSkybox; // Material con Skybox/Panoramic y RenderTexture asignado
+
+    private Material defaultSkybox; // Guarda el skybox original
+
     [Header("Opcional")]
-    public bool loop = false; // 👈 ahora mejor dejar en false si quieres que vuelva
+    public bool loop = false;
 
     private void Start()
     {
+        // Guardar el skybox original
+        defaultSkybox = RenderSettings.skybox;
+
         int index = VideoManager.GetVideoIndexOrDefault(0);
 
         if (clips == null || clips.Length == 0)
         {
-            Debug.LogError("[SphereVideoPlayer] No hay clips asignados.");
+            Debug.LogError("[SkyboxVideoPlayer] No hay clips asignados.");
             return;
         }
         if (index < 0 || index >= clips.Length)
         {
-            Debug.LogWarning($"[SphereVideoPlayer] Índice {index} fuera de rango. Usando 0.");
+            Debug.LogWarning($"[SkyboxVideoPlayer] Índice {index} fuera de rango. Usando 0.");
             index = 0;
         }
 
         StartCoroutine(PlaySelected(index));
 
-        // 🔹 Escuchar cuando el video termine
+        // Escuchar cuando el video termine
         videoPlayer.loopPointReached += OnVideoFinished;
     }
 
     private IEnumerator PlaySelected(int index)
     {
+        // Cambiar skybox al material de video
+        if (videoSkybox != null)
+            RenderSettings.skybox = videoSkybox;
+
         videoPlayer.Stop();
         videoPlayer.isLooping = loop;
         videoPlayer.clip = clips[index];
@@ -50,9 +62,11 @@ public class SphereVideoPlayer : MonoBehaviour
 
     private void OnVideoFinished(VideoPlayer vp)
     {
-        // 🔹 Regresar a la escena anterior
-        //   Usamos SceneManager.GetActiveScene().buildIndex - 1
-        //   para volver a la escena de donde venías
+        // Restaurar skybox original
+        if (defaultSkybox != null)
+            RenderSettings.skybox = defaultSkybox;
+
+        // Regresar a la escena anterior
         int prevIndex = SceneManager.GetActiveScene().buildIndex - 1;
 
         if (prevIndex >= 0)
